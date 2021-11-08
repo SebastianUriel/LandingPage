@@ -48,7 +48,7 @@
 		try {
 			const returnValue = await fetch('/email', { method: 'POST' });
 			const response = await returnValue.json();
-			message = response.data.message;
+			message = response.message;
 		} catch (error) {
 			console.error(error);
 		}
