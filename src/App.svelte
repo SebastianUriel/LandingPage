@@ -233,63 +233,48 @@
                 <h2 class="section-heading text-uppercase">Contactanos</h2>
                 <h3 class="section-subheading text-muted">Nos contactaremos lo más pronto posible.</h3>
             </div>
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- * * SB Forms Contact Form * *-->
-            <!-- * * * * * * * * * * * * * * *-->
-            <!-- This form is pre-integrated with SB Forms.-->
-            <!-- To make this form functional, sign up at-->
-            <!-- https://startbootstrap.com/solution/contact-forms-->
-            <!-- to get an API token!-->
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                 <div class="row justify-content-center mb-5">
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Input nombre-->
-                            <input class="form-control" id="name" type="text" placeholder="Tu nombre *" data-sb-validations="required" />
-                            <div class="invalid-feedback" data-sb-feedback="name:required">Se requiere un nombre.</div>
+                            <input type="text" class="form-control" id="inputName" name="name" bind:value={$form.name} on:change={handleChange} maxlength="40" placeholder="Tu nombre *">
+                            {#if $errors.name}
+                                <span class="text-danger">{$errors.name}</span>
+                            {/if}
                         </div>
                         <div class="form-group">
                             <!-- Input correo electronico-->
-                            <input class="form-control" id="email" type="email" placeholder="Tu correo electrónico *" data-sb-validations="required,email" />
-                            <div class="invalid-feedback" data-sb-feedback="email:required">Se requiere un email.</div>
-                            <div class="invalid-feedback" data-sb-feedback="email:email">El correo no es válido.</div>
+                            <input type="email" class="form-control" id="inputEmail" name="email" bind:value={$form.email} on:change={handleChange} maxlength="60" placeholder="Tu correo electrónico *">
+                            {#if $errors.email}
+                                <span class="text-danger">{$errors.email}</span>
+                            {/if}
                         </div>
                         <div class="form-group">
                             <!-- Input numero de telefono-->
-                            <input class="form-control" id="phone" type="tel" placeholder="Su teléfono *" data-sb-validations="required" />
-                            <div class="invalid-feedback" data-sb-feedback="phone:required">Se requiere un número de teléfono.</div>
+                            <input type="text" class="form-control" id="inputCellphone" name="cellphone" bind:value={$form.cellphone} on:change={handleChange} maxlength="10" placeholder="Su teléfono *">
+                            {#if $errors.cellphone}
+                                <span class="text-danger">{$errors.cellphone}</span>
+                            {/if}
                         </div>
                         <div class="form-group mb-md-0">
                             <!-- Lista de servicios-->
-                            <select name="list-servicios" class="form-control" id="lista-servicios" data-sb-validations="required">
-                                <option value="" selected disabled>Selecciona un servicio</option>
-                                <option value="value1">Servicio 1</option>
-                                <option value="value2">Servicio 2</option>
-                                <option value="value3">Servicio 3</option>
+                            <select class="form-select" name="service" id="inputService" bind:value={$form.service} on:change={handleChange}>
+                                <option value="0" selected>Servicio 1</option>
+                                <option value="1">Servicio 2</option>
+                                <option value="2">Servicio 3</option>
+                                <option value="3">Servicio 3</option>
                             </select>
-                            <div class="invalid-feedback" data-sb-feedback="list-servicios:required">Seleccione un servicio.</div>
+                            {#if $errors.service}
+                                <span class="text-danger">{$errors.service}</span>
+                            {/if}
                         </div>
                     </div>
                 </div>
-                <!-- Submit success message-->
-                <!---->
-                <!-- This is what your users will see when the form-->
-                <!-- has successfully submitted-->
-                <div class="d-none" id="submitSuccessMessage">
-                    <div class="text-center text-white mb-3">
-                        <div class="fw-bolder">Envío de formulario exitoso!</div>
-                        To activate this form, sign up at
-                        <br />
-                        <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                    </div>
+                <!-- Boton enviar datos-->
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-xl text-uppercase" on:click={handleSubmit} onclick="this.blur();">Enviar datos</button>
                 </div>
-                <!-- Submit error message-->
-                <!---->
-                <!-- This is what your users will see when there is-->
-                <!-- an error submitting the form-->
-                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">¡Error al enviar los datos!</div></div>
-                <!-- Submit Button-->
-                <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Enviar datos</button></div>
             </form>
         </div>
     </section>
@@ -566,7 +551,7 @@
 	</div> -->
 
 	<!-- Modal -->
-	<!-- <Modal bind:open={isOpen} dialogClasses="modal-dialog-centered" ignoreBackdrop="true">
+	<Modal bind:open={isOpen} dialogClasses="modal-dialog-centered" ignoreBackdrop="true">
 		<div class="modal-header">
 			<h5 class="modal-title" id="staticBackdropLabel">Envío de contacto</h5>
 		</div>
@@ -584,5 +569,5 @@
 				</button>
 			{/if}
 		</div>
-	</Modal> -->
+	</Modal>
 </main>
