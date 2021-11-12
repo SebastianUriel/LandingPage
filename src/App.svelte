@@ -6,6 +6,23 @@
 	let isOpen = false;
 	let message = 'Procesando envio de contacto...';
 
+    const jq = window.$;
+
+    const services = [
+        { 
+            value : "Servicio 1"
+        },
+        { 
+            value : "Servicio 2"
+        },
+        { 
+            value : "Servicio 3"
+        },
+        { 
+            value : "Servicio 4"
+        }
+    ];
+
 	const { form, errors, handleChange, handleSubmit } = createForm({
 		initialValues: {},
 		validate: (values) => {
@@ -29,7 +46,7 @@
 			}
 
 			// Servicio
-			if(!values.service) {
+			if(values.service == '0') {
 				errors["service"] = "Servicio es necesario.";
 			}
 
@@ -54,6 +71,14 @@
 		}
 		inProcess = false;
 	}
+
+    jq(document).ready(function () {
+        jq("#inputCellphone").keypress(function (e) {
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                return false;
+            }
+        });
+    });
 </script>
 
 
@@ -82,7 +107,7 @@
 	<!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">Bienvenidos a TRADUNL!</div>
+            <div class="masthead-subheading">¡Bienvenidos a TRADUNL!</div>
             <div class="masthead-heading text-uppercase">¿Necesitas algún traductor?</div>
             <a class="btn btn-primary btn-xl text-uppercase" href="#servicios">Servicios</a>
         </div>
@@ -230,7 +255,7 @@
     <section class="page-section" id="contact">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contactanos</h2>
+                <h2 class="section-heading text-uppercase">Contáctanos</h2>
                 <h3 class="section-subheading text-muted">Nos contactaremos lo más pronto posible.</h3>
             </div>
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
@@ -238,21 +263,21 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Input nombre-->
-                            <input type="text" class="form-control" id="inputName" name="name" bind:value={$form.name} on:change={handleChange} maxlength="40" placeholder="Tu nombre *">
+                            <input type="text" class="form-control" id="inputName" name="name" bind:value={$form.name} on:change={handleChange} maxlength="40" placeholder="Nombre">
                             {#if $errors.name}
                                 <span class="text-danger">{$errors.name}</span>
                             {/if}
                         </div>
                         <div class="form-group">
                             <!-- Input correo electronico-->
-                            <input type="email" class="form-control" id="inputEmail" name="email" bind:value={$form.email} on:change={handleChange} maxlength="60" placeholder="Tu correo electrónico *">
+                            <input type="email" class="form-control" id="inputEmail" name="email" bind:value={$form.email} on:change={handleChange} maxlength="60" placeholder="Correo electrónico">
                             {#if $errors.email}
                                 <span class="text-danger">{$errors.email}</span>
                             {/if}
                         </div>
                         <div class="form-group">
                             <!-- Input numero de telefono-->
-                            <input type="text" class="form-control" id="inputCellphone" name="cellphone" bind:value={$form.cellphone} on:change={handleChange} maxlength="10" placeholder="Su teléfono *">
+                            <input type="text" class="form-control" id="inputCellphone" name="cellphone" bind:value={$form.cellphone} on:change={handleChange} maxlength="10" placeholder="Número de celular">
                             {#if $errors.cellphone}
                                 <span class="text-danger">{$errors.cellphone}</span>
                             {/if}
@@ -260,10 +285,10 @@
                         <div class="form-group mb-md-0">
                             <!-- Lista de servicios-->
                             <select class="form-select" name="service" id="inputService" bind:value={$form.service} on:change={handleChange}>
-                                <option value="0" selected>Servicio 1</option>
-                                <option value="1">Servicio 2</option>
-                                <option value="2">Servicio 3</option>
-                                <option value="3">Servicio 3</option>
+                                <option value="0" selected>Selecciona un servicio de su interés</option>
+                                {#each services as service}
+                                    <option value={service.value} selected>{service.value}</option>
+                                {/each}
                             </select>
                             {#if $errors.service}
                                 <span class="text-danger">{$errors.service}</span>
