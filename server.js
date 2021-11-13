@@ -70,9 +70,9 @@ app.post('/email', (req, res) => {
         });
     
         let mailOptions = {
-            from: process.env.EMAIL,
-            to: process.env.EMAIL,
-            subject: 'Nice Nodemailer test',
+            from: process.env.EMAIL_FROM,
+            to: process.env.EMAIL_TO,
+            subject: '¡NUEVO CONTACTO INTERESADO!',
             text: 'Hey there, it’s our first message sent with Nodemailer ',
             html: '<b>Hey there! </b><br> This is our first message sent with Nodemailer<br /><img src="cid:uniq-mailtrap.png" alt="mailtrap" />'
         };

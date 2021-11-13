@@ -10,16 +10,62 @@
 
     const services = [
         { 
-            value : "Servicio 1"
+            value: "Revistas",
+            show: true,
+            img: "/assets/img/servicios/magazine.jpg",
+            description: "Poner una descripcion"
         },
         { 
-            value : "Servicio 2"
+            value: "Libros",
+            show: true,
+            img: "/assets/img/servicios/books.jpg",
+            description: "Poner una descripcion"
         },
         { 
-            value : "Servicio 3"
+            value: "Artículos",
+            show: true,
+            img: "/assets/img/servicios/article.jpg",
+            description: "Poner una descripcion"
         },
         { 
-            value : "Servicio 4"
+            value: "Actas de divorcio",
+            show: true,
+            img: "/assets/img/servicios/divorce.jpg",
+            description: "Poner una descripcion"
+        },
+        { 
+            value: "Actas de nacimiento",
+            show: true,
+            img: "/assets/img/servicios/birth.jpg",
+            description: "Poner una descripcion"
+        },
+        { 
+            value: "Cartas de titulación",
+            show: true,
+            img: "/assets/img/servicios/academic-title.jpg",
+            description: "Poner una descripcion"
+        },
+        { 
+            value: "Cartas de naturalización",
+            show: true,
+            img: "/assets/img/servicios/naturalization.jpg",
+            description: "Poner una descripcion"
+        },
+        { 
+            value: "Cartas de antecedentes penales",
+            show: true,
+            img: "/assets/img/servicios/penal.jpg",
+            description: "Poner una descripcion"
+        },
+        { 
+            value: "Libretos y guiones audiovisuales",
+            show: true,
+            img: "/assets/img/servicios/cinematography.jpg",
+            description: "Poner una descripcion"
+        },
+        { 
+            value: "Otro",
+            show: false
         }
     ];
 
@@ -162,99 +208,26 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Servicios</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h4 class="section-subheading text-muted">Te ayudamos a traducir:</h4>
+                <h3 class="section-subheading text-muted"><b>(Los textos legales incluyen sello de perito certificado)</b></h3>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Servicio item 1-->
-                    <div class="servicio-item">
-                        <a class="servicio-link" data-bs-toggle="modal" href="#servicioModal1">
-                            <div class="servicio-hover">
-                                <div class="servicio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                {#each services as service}
+                    {#if service.show}
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                            <!-- Servicio item 1-->
+                            <div class="servicio-item">
+                                <div class="servicio-link">
+                                    <img class="img-fluid" src={service.img} alt={service.value} />
+                                </div>
+                                <div class="servicio-caption">
+                                    <div class="servicio-caption-heading">{service.value}</div>
+                                    <div class="servicio-caption-subheading text-muted">{service.description}</div>
+                                </div>
                             </div>
-                            <img class="img-fluid" src="/assets/img/servicios/1.jpg" alt="..." />
-                        </a>
-                        <div class="servicio-caption">
-                            <div class="servicio-caption-heading">Servicio 1</div>
-                            <div class="servicio-caption-subheading text-muted">Illustration</div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Servicio item 2-->
-                    <div class="servicio-item">
-                        <a class="servicio-link" data-bs-toggle="modal" href="#servicioModal2">
-                            <div class="servicio-hover">
-                                <div class="servicio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="/assets/img/servicios/2.jpg" alt="..." />
-                        </a>
-                        <div class="servicio-caption">
-                            <div class="servicio-caption-heading">Servicio 2</div>
-                            <div class="servicio-caption-subheading text-muted">Graphic Design</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4">
-                    <!-- Servicio item 3-->
-                    <div class="servicio-item">
-                        <a class="servicio-link" data-bs-toggle="modal" href="#servicioModal3">
-                            <div class="servicio-hover">
-                                <div class="servicio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="/assets/img/servicios/3.jpg" alt="..." />
-                        </a>
-                        <div class="servicio-caption">
-                            <div class="servicio-caption-heading">Servicio 3</div>
-                            <div class="servicio-caption-subheading text-muted">Graphic Design</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
-                    <!-- Servicio item 4-->
-                    <div class="servicio-item">
-                        <a class="servicio-link" data-bs-toggle="modal" href="#servicioModal4">
-                            <div class="servicio-hover">
-                                <div class="servicio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="/assets/img/servicios/4.jpg" alt="..." />
-                        </a>
-                        <div class="servicio-caption">
-                            <div class="servicio-caption-heading">Servicio 4</div>
-                            <div class="servicio-caption-subheading text-muted">Branding</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
-                    <!-- servicio item 5-->
-                    <div class="servicio-item">
-                        <a class="servicio-link" data-bs-toggle="modal" href="#servicioModal5">
-                            <div class="servicio-hover">
-                                <div class="servicio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="/assets/img/servicios/5.jpg" alt="..." />
-                        </a>
-                        <div class="servicio-caption">
-                            <div class="servicio-caption-heading">Servicio 5</div>
-                            <div class="servicio-caption-subheading text-muted">Website Design</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <!-- servicio item 6-->
-                    <div class="servicio-item">
-                        <a class="servicio-link" data-bs-toggle="modal" href="#servicioModal6">
-                            <div class="servicio-hover">
-                                <div class="servicio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="/assets/img/servicios/6.jpg" alt="..." />
-                        </a>
-                        <div class="servicio-caption">
-                            <div class="servicio-caption-heading">Servicio 6</div>
-                            <div class="servicio-caption-subheading text-muted">Photography</div>
-                        </div>
-                    </div>
-                </div>
+                    {/if}
+                {/each}
             </div>
         </div>
     </section>
@@ -268,6 +241,9 @@
             </div>
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                 <div class="row justify-content-center mb-5">
+                    <div class="col-md-6">
+                        <img class="img-fluid" src="/assets/img/servicios/contacto.jpg" alt="contacto" />
+                    </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <!-- Input nombre-->
@@ -302,11 +278,13 @@
                                 <span class="text-danger">{$errors.service}</span>
                             {/if}
                         </div>
+                        <div class="form-group">
+                            <!-- Boton enviar datos-->
+                            <div class="form-button text-center">
+                                <button type="button" class="btn btn-primary btn-xl text-uppercase" on:click={handleSubmit} onclick="this.blur();">Enviar datos</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <!-- Boton enviar datos-->
-                <div class="text-center">
-                    <button type="button" class="btn btn-primary btn-xl text-uppercase" on:click={handleSubmit} onclick="this.blur();">Enviar datos</button>
                 </div>
             </form>
         </div>
@@ -323,219 +301,6 @@
             </div>
         </div>
     </footer>
-
-	<!-- Servicios Modals-->
-        <!-- Servicio item 1 modal popup-->
-        <div class="servicio-modal modal fade" id="servicioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="/assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Servicio 1</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="/assets/img/servicios/1.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Threads
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Illustration
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Cerrar Servicio
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <!-- Servicio item 2 modal popup-->
-        <div class="servicio-modal modal fade" id="servicioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="/assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Servicio 2</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="/assets/img/servicios/2.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Explore
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Graphic Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Cerrar Servicio
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Servicio item 3 modal popup-->
-        <div class="servicio-modal modal fade" id="servicioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="/assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Servicio 3</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="/assets/img/servicios/3.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Finish
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Identity
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Cerrar Servicio
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Servicio item 4 modal popup-->
-        <div class="servicio-modal modal fade" id="servicioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="/assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Servicio 4</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="/assets/img/servicios/4.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Lines
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Branding
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Cerrar Servicio
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Servicio item 5 modal popup-->
-        <div class="servicio-modal modal fade" id="servicioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="/assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Servicio 5</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="/assets/img/servicios/5.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Southwest
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Website Design
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Cerrar Servicio
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Servicio item 6 modal popup-->
-        <div class="servicio-modal modal fade" id="servicioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="close-modal" data-bs-dismiss="modal"><img src="/assets/img/close-icon.svg" alt="Close modal" /></div>
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-8">
-                                <div class="modal-body">
-                                    <!-- Project details-->
-                                    <h2 class="text-uppercase">Servicio 6</h2>
-                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                    <img class="img-fluid d-block mx-auto" src="/assets/img/servicios/6.jpg" alt="..." />
-                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <strong>Client:</strong>
-                                            Window
-                                        </li>
-                                        <li>
-                                            <strong>Category:</strong>
-                                            Photography
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
-                                        <i class="fas fa-times me-1"></i>
-                                        Cerrar Servicio
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 	<!-- Modal -->
 	<Modal bind:open={isOpen} dialogClasses="modal-dialog-centered" ignoreBackdrop="true">
