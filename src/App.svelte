@@ -73,9 +73,17 @@
 	}
 
     jq(document).ready(function () {
+        jq("#inputName").keypress(function (e) {
+            var inputValue = e.charCode;
+            if(!((inputValue > 64 && inputValue < 91) || (inputValue > 96 && inputValue < 123)||(inputValue==32) || (inputValue==0))){
+                e.preventDefault();
+            }
+        });
+
         jq("#inputCellphone").keypress(function (e) {
-            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-                return false;
+            var inputValue = e.charCode;
+            if(!((inputValue > 47 && inputValue < 58) ||(inputValue==32) || (inputValue==0))){
+                e.preventDefault();
             }
         });
     });
@@ -528,52 +536,6 @@
                 </div>
             </div>
         </div>
-
-	<!-- <div class="container-md">
-		<div class="card">
-			<h5 class="card-header">CONTACTO-TEST</h5>
-			<div class="card-body">
-				<form>
-					<div class="mb-3">
-						<label for="inputName" class="form-label">Nombre:</label>
-						<input type="text" class="form-control" id="inputName" name="name" bind:value={$form.name} on:change={handleChange} maxlength="40">
-						{#if $errors.name}
-							<span class="text-danger">{$errors.name}</span>
-						{/if}
-					</div>
-					<div class="mb-3">
-						<label for="inputCellphone" class="form-label">Número de celular:</label>
-						<input type="text" class="form-control" id="inputCellphone" name="cellphone" bind:value={$form.cellphone} on:change={handleChange} maxlength="10">
-						{#if $errors.cellphone}
-							<span class="text-danger">{$errors.cellphone}</span>
-						{/if}
-					</div>
-					<div class="mb-3">
-						<label for="inputEmail" class="form-label">Correo electrónico:</label>
-						<input type="email" class="form-control" id="inputEmail" name="email" bind:value={$form.email} on:change={handleChange} maxlength="60">
-						{#if $errors.email}
-							<span class="text-danger">{$errors.email}</span>
-						{/if}
-					</div>
-					<div class="mb-3">
-						<label for="inputService" class="form-label">Servicio:</label>
-						<select class="form-select" name="service" id="inputService" bind:value={$form.service} on:change={handleChange}>
-							<option value="0" selected>Zero</option>
-							<option value="1">One</option>
-							<option value="2">Two</option>
-							<option value="3">Three</option>
-						</select>
-						{#if $errors.service}
-							<span class="text-danger">{$errors.service}</span>
-						{/if}
-					</div>
-					<div class="mb-3">
-						<button type="button" class="btn btn-primary" on:click={handleSubmit}>Enviar</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div> -->
 
 	<!-- Modal -->
 	<Modal bind:open={isOpen} dialogClasses="modal-dialog-centered" ignoreBackdrop="true">
