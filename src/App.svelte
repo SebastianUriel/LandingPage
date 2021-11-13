@@ -99,17 +99,21 @@
 			return errors;
 		},
 		onSubmit: async (values) => {
-			await execute();
+			await execute(values);
 		},
 	});
 
 
-	async function execute() {
+	async function execute(values) {
 		message = 'Procesando envio de contacto...';
 		inProcess = true;
 		isOpen = true;
 		try {
-			const returnValue = await fetch('/email', { method: 'POST' });
+			const returnValue = await fetch('/email', { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify(values)
+            });
 			const response = await returnValue.json();
 			message = response.message;
 		} catch (error) {

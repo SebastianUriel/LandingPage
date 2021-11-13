@@ -6,6 +6,8 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const bodyParser = require('body-parser');
+const handlebars = require('handlebars');
+const fs = require('fs');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -19,7 +21,7 @@ app.use(cors());
 // Folder public
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
- });
+});
 
 // --- Proceso de encriptacion ---
 const crypto = require('crypto');
@@ -55,16 +57,25 @@ app.post('/decrypt', (req, res) => {
 // --- Proceso envio de correo ---
 const nodemailer = require('nodemailer');
 
+const generateHtml = (name, cellphone, email, service) => {
+    const filePath = path.join(__dirname, 'email/formato.html');
+    const source = fs.readFileSync(filePath, 'utf-8').toString();
+    const template = handlebars.compile(source);
+    const replacements = { name, cellphone, email, service };
+    return template(replacements);
+}
+
 app.post('/email', (req, res) => {
     /*try {
         let { name, cellphone, email, service } = req.body;
 
         let pass = decrypt(process.env.IV, process.env.CONTENT);
+        let htmlToSend = generateHtml(name, cellphone, email, service);
     
         let transport = nodemailer.createTransport({
             service: 'Gmail',
             auth: {
-                user: process.env.EMAIL,
+                user: process.env.EMAIL_FROM,
                 pass: pass
             }
         });
@@ -73,8 +84,8 @@ app.post('/email', (req, res) => {
             from: process.env.EMAIL_FROM,
             to: process.env.EMAIL_TO,
             subject: '¡NUEVO CONTACTO INTERESADO!',
-            text: 'Hey there, it’s our first message sent with Nodemailer ',
-            html: '<b>Hey there! </b><br> This is our first message sent with Nodemailer<br /><img src="cid:uniq-mailtrap.png" alt="mailtrap" />'
+            text: 'Nuevo contacto',
+            html: htmlToSend
         };
     
         transport.sendMail(mailOptions, (error, info) => {
