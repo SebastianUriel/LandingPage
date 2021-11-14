@@ -66,7 +66,7 @@ const generateHtml = (name, cellphone, email, service) => {
 }
 
 app.post('/email', (req, res) => {
-    try {
+    /*try {
         let { name, cellphone, email, service } = req.body;
 
         let pass = decrypt(process.env.IV, process.env.CONTENT);
@@ -100,11 +100,11 @@ app.post('/email', (req, res) => {
     } catch(err) {
         console.log(err)
         return res.send({ message: 'Hay un error al tratar de enviar el contacto, favor de comunicarce con soporte.' });
-    }
+    }*/
 
-    /*return setTimeout(() => {
+    return setTimeout(() => {
         return res.send({ message: '¡Envío de contacto exitoso!' });
-    }, 4000);*/
+    }, 4000);
 });
 
 app.listen(port, () => {
