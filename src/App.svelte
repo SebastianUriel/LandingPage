@@ -299,7 +299,8 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12 my-3 my-lg-2 ">
-                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/TRADUNL" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/TRADUNL" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="https://wa.me/message/VQ34XFNQTPHCE1" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
                 <div class="col-lg-12 my-3 my-lg-2">Copyright &copy; Tradunl 2021</div>
             </div>
