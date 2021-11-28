@@ -176,32 +176,24 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Nosotros</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3 class="section-subheading text-muted">Somos traductores profesionales ubicados en el estado de Nuevo León.</h3>
             </div>
             <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x iconos-nosotros"></i>
-                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x iconos-nosotros"></i>
                         <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="my-3">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="my-3">Profesionales</h4>
+                    <p class="text-muted">Contamos con profesionales experimentados en traducciones jurídicas, técnicas, audiovisuales y académicas</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x iconos-nosotros"></i>
                         <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="my-3">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="my-3">Confiables</h4>
+                    <p class="text-muted">Cada proyecto se hace con profesionalidad, los textos traducidos son revisados por editores experimentados y los textos certificados son autorizados por un perito traductor jurídico en Nuevo León</p>
                 </div>
             </div>
         </div>
@@ -246,9 +238,11 @@
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                 <div class="row justify-content-center mb-5">
                     <div class="col-md-6">
+                        <h3 class="text-white text-center" >Contáctanos por whatsapp</h3>
                         <img class="img-fluid" src="/assets/img/servicios/contacto.jpg" alt="contacto" />
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 contacto-correo">
+                        <h3 class="text-white text-center">Mándanos tus datos y te contactaremos</h3>
                         <div class="form-group">
                             <!-- Input nombre-->
                             <input type="text" class="form-control" id="inputName" name="name" bind:value={$form.name} on:change={handleChange} maxlength="40" placeholder="Nombre">
@@ -270,7 +264,7 @@
                                 <span class="text-danger">{$errors.cellphone}</span>
                             {/if}
                         </div>
-                        <div class="form-group mb-md-0">
+                        <div class="form-group">
                             <!-- Lista de servicios-->
                             <select class="form-select" name="service" id="inputService" bind:value={$form.service} on:change={handleChange}>
                                 <option value="0" selected>Selecciona un servicio de su interés</option>
@@ -281,6 +275,60 @@
                             {#if $errors.service}
                                 <span class="text-danger">{$errors.service}</span>
                             {/if}
+                        </div>
+                        <div class="form-group">
+                            <!-- Lista de idioma origen-->
+                            <select class="form-select" name="idioma-origen" id="input-idioma-origen">
+                                <option value="0" selected>Selecciona el idioma origen</option>
+                            </select>
+                        </div>
+
+                        <!-- Idiomas destino -->
+                        <div class="form-group">
+                            <legend id="legend-idioma-destino" class="">Selecciona los idiomas destino</legend>                            
+                            <!-- Checkbox de idiomas destino -->
+                            <div class="form-check col-12">
+                                <input type="checkbox" class="btn-check" value="" id="checkboxInglesDestino">
+                                <label class="btn btn-outline-success" for="checkboxInglesDestino">
+                                    Inglés
+                                </label>
+                            </div>
+
+                            <!-- Checkbox Portugues  destino -->
+                            <div class="form-check">
+                                <input type="checkbox" class="btn-check" value="" id="checkboxPortuguesDestino">
+                                <label class="btn btn-outline-success" for="checkboxPortuguesDestino">
+                                    Portugués 
+                                </label>
+                            </div>
+                            <!-- Checkbox Japones destino -->
+                            <div class="form-check">
+                                <input type="checkbox" class="btn-check" value="" id="checkboxJaponesDestino">
+                                <label class="btn btn-outline-success" for="checkboxJaponesDestino">
+                                    Japonés
+                                </label>
+                            </div>
+                            <!-- Checkbox Espanol destino -->
+                            <div class="form-check">
+                                <input type="checkbox" class="btn-check" value="" id="checkboxEspanolDestino">
+                                <label class="btn btn-outline-success" for="checkboxEspanolDestino">
+                                    Español
+                                </label>
+                            </div>
+                            <!-- Checkbox Coreano destino -->
+                            <div class="form-check">                                
+                                <input type="checkbox" class="btn-check" value="" id="checkboxCoreanoDestino">
+                                <label class="btn btn-outline-success" for="checkboxCoreanoDestino">
+                                    Coreano
+                                </label>
+                            </div>
+                        </div>
+    
+
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Message input-->
+                            <textarea class="form-control" id="message" placeholder="Escribe tu necesidad" data-sb-validations="required"></textarea>
+                            <!-- <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div> -->
                         </div>
                         <div class="form-group">
                             <!-- Boton enviar datos-->
