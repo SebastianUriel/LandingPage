@@ -94,7 +94,7 @@ header.masthead {
     padding-bottom: 6rem;
     text-align: center;
     color: var(--color-terciario);
-    background-image: url("/assets/img/header-masthead-6.png");
+    /*background-image: url("/assets/img/header-masthead-7.png");*/
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -102,7 +102,12 @@ header.masthead {
     /* object-fit: contain; */
 }
 
+.main-space {
+    margin-bottom: 4rem;
+}
+
 header.masthead .masthead-subheading {
+    color: var(--color-base);
     font-size: 1.5rem;
     font-style: italic;
     line-height: 1.5rem;
@@ -111,6 +116,7 @@ header.masthead .masthead-subheading {
 }
 
 header.masthead .masthead-heading {
+    color: var(--color-base);
     font-size: 3.25rem;
     font-weight: 700;
     line-height: 3.25rem;
@@ -124,12 +130,14 @@ header.masthead .masthead-heading {
         padding-bottom: 12.5rem;
     }
     header.masthead .masthead-subheading {
+        color: var(--color-base);
         font-size: 2.25rem;
         font-style: italic;
         line-height: 2.25rem;
         margin-bottom: 2rem;
     }
     header.masthead .masthead-heading {
+        color: var(--color-base);
         font-size: 4.5rem;
         font-weight: 700;
         line-height: 4.5rem;
@@ -158,6 +166,15 @@ header.masthead .masthead-heading {
     border-color: var(--color-terciario);
 }
 
+.form-check-input:checked {
+    background-color: var(--color-base);
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+}
 
 /* Revisar su uso */
 /* html {
@@ -179,11 +196,17 @@ p {
 .page-section {
     padding: 6rem 0;
 }
+
 .page-section h2.section-heading, .page-section .section-heading.h2 {
     font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
 }
+
+.section-heading-2 {
+    margin-bottom: 2rem;
+}
+
 .page-section h3.section-subheading, .page-section .section-subheading.h3 {
     font-size: 1rem;
     font-weight: 400;
@@ -311,10 +334,16 @@ p {
     opacity: 0.3;
 }
 
-
-
-
 /* CONTACTANOS */
+.form-group-check {
+    margin-bottom: 30px;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 #contact{
     padding-bottom: 2rem;
 }
