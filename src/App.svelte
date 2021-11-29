@@ -269,11 +269,11 @@
                     <img class="img-fluid" src="/assets/img/servicios/contacto.jpg" alt="contacto" />
                 </div>
                 <div class="col-md-6 my-auto">
-                    <div class="row">
-                        <a class="btn btn-dark btn-social btn-xl btn-block" href="https://www.facebook.com/TRADUNL" target="_blank">
-                            <i class="fab fa-facebook-square fa-5x"></i></a>
-                        <a class="btn btn-dark btn-social btn-xl btn-block" href="https://wa.me/message/VQ34XFNQTPHCE1" target="_blank">
-                            <i class="fab fa-whatsapp fa-5x"></i></a>
+                    <div class="text-center">
+                        <a class="btn btn-dark btn-social btn-xl" href="https://www.facebook.com/TRADUNL" target="_blank">
+                            <i class="fab fa-facebook-square fa-6x"></i></a>
+                        <a class="btn btn-dark btn-social btn-xl" href="https://wa.me/message/VQ34XFNQTPHCE1" target="_blank">
+                            <i class="fab fa-whatsapp fa-6x"></i></a>
                     </div>
                 </div>
             </div>
