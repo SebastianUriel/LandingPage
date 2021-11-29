@@ -185,6 +185,7 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formulario">Formulario</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
             </div>
@@ -194,9 +195,16 @@
 	<!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">¡Bienvenidos a TRADUNL!</div>
-            <div class="masthead-heading text-uppercase">¿Necesitas algún traductor?</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="#servicios">Servicios</a>
+            <div class="row">
+                <div class="d-none d-lg-block col-6">
+                    <img src="/assets/img/header-masthead-4.png" alt="contacto" />
+                </div>
+                <div class="col-lg-6 header-texto">
+                    <div class="masthead-subheading">¡Bienvenidos a TRADUNL!</div>
+                    <div class="masthead-heading text-uppercase">¿Necesitas algún traductor?</div>
+                    <a class="btn btn-primary btn-xl text-uppercase" href="#servicios">Servicios</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -229,7 +237,7 @@
     </section>
 
 	<!-- Servicios-->
-    <section class="page-section bg-light" id="servicios">
+    <section class="page-section" id="servicios">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Servicios</h2>
@@ -257,29 +265,15 @@
         </div>
     </section>
 
-	<!-- Contactanos -->
-    <section class="page-section" id="contact">
+    <!-- Formulario -->
+    <section class="page-section" id="formulario">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contáctanos</h2>
-            </div>
-
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-6">
-                    <img class="img-fluid" src="/assets/img/servicios/contacto.jpg" alt="contacto" />
-                </div>
-                <div class="col-md-6 my-auto">
-                    <div class="text-center">
-                        <a class="btn btn-dark btn-social btn-xl" href="https://www.facebook.com/TRADUNL" target="_blank">
-                            <i class="fab fa-facebook-square fa-6x"></i></a>
-                        <a class="btn btn-dark btn-social btn-xl" href="https://wa.me/message/VQ34XFNQTPHCE1" target="_blank">
-                            <i class="fab fa-whatsapp fa-6x"></i></a>
-                    </div>
-                </div>
+                <h2 class="section-heading text-uppercase">Formulario</h2>
+                <h3 class="section-subheading text-muted">Mándanos tus datos y nos contactaremos lo más pronto posible</h3>
             </div>
 
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                <h3 class="section-heading-2 text-white text-center" >Mándanos tus datos y nos contactaremos lo más pronto posible</h3>
                 <div class="row justify-content-center mb-5">
                     <div class="col-md-6 contacto-correo">
                         <div class="form-group">
@@ -378,6 +372,31 @@
                     </div>
                 </div>
             </form>
+        </div>
+    </section>
+
+	<!-- Contactanos -->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contáctanos</h2>
+            </div>
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-6">
+                    <img class="img-fluid" src="/assets/img/servicios/contacto.PNG" alt="contacto" />
+                </div>
+                <div class="col-md-6 my-auto">
+                    <div class="text-center">
+                        <a class="btn btn-social btn-xl icon-face" href="https://www.facebook.com/TRADUNL" target="_blank">
+                            <i class="fab fa-facebook-square fa-6x"></i></a>
+                        <a class="btn btn-social btn-xl icon-whats" href="https://wa.me/message/VQ34XFNQTPHCE1" target="_blank">
+                            <i class="fab fa-whatsapp fa-6x"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            
         </div>
     </section>
 
