@@ -57,20 +57,31 @@ app.post('/decrypt', (req, res) => {
 // --- Proceso envio de correo ---
 const nodemailer = require('nodemailer');
 
-const generateHtml = (name, cellphone, email, service) => {
+const generateHtml = (name, cellphone, email, service, originLanguage, description, languagesToTraduct) => {
     const filePath = path.join(__dirname, 'email/formato.html');
     const source = fs.readFileSync(filePath, 'utf-8').toString();
     const template = handlebars.compile(source);
-    const replacements = { name, cellphone, email, service };
+    const replacements = { name, cellphone, email, service, originLanguage, description, languagesToTraduct };
     return template(replacements);
 }
 
 app.post('/email', (req, res) => {
     /*try {
-        let { name, cellphone, email, service } = req.body;
+        let { 
+            name, cellphone, email, service, originLanguage, description, destIngles, destPortugues, destJapones, destEspanol, destCoreano
+        } = req.body;
+
+        if(destIngles) destIngles = "Inglés";
+        if(destPortugues) destPortugues = "Portugués";
+        if(destJapones) destJapones = "Japonés";
+        if(destEspanol) destEspanol = "Español";
+        if(destCoreano) destCoreano= "Coreano";
+
+        let languagesToTraduct = [destIngles, destPortugues, destJapones, destEspanol, destCoreano];
+        console.log(languagesToTraduct );
 
         let pass = decrypt(process.env.IV, process.env.CONTENT);
-        let htmlToSend = generateHtml(name, cellphone, email, service);
+        let htmlToSend = generateHtml(name, cellphone, email, service, originLanguage, description, languagesToTraduct);
     
         let transport = nodemailer.createTransport({
             service: 'Gmail',
