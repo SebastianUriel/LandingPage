@@ -93,7 +93,7 @@ app.post('/email', (req, res) => {
     
         let mailOptions = {
             from: process.env.EMAIL_FROM,
-            to: process.env.EMAIL_TO,
+            to: [process.env.EMAIL_TO, email],
             subject: '¡NUEVO CONTACTO INTERESADO!',
             text: 'Nuevo contacto',
             html: htmlToSend
