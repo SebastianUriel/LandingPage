@@ -42,7 +42,7 @@ const decrypt = (iv, content) => {
     return decrpyted.toString();
 }
 
-app.post('/encript', (req, res) => {
+/*app.post('/encript', (req, res) => {
     let { text } = req.body;
     let result = encript(text);
     return res.send(result);
@@ -52,7 +52,7 @@ app.post('/decrypt', (req, res) => {
     let { iv, content } = req.body;
     let result = decrypt(iv, content);
     return res.send({ text: result });
-});
+});*/
 
 // --- Proceso envio de correo ---
 const nodemailer = require('nodemailer');
@@ -66,7 +66,7 @@ const generateHtml = (name, cellphone, email, service, originLanguage, descripti
 }
 
 app.post('/email', (req, res) => {
-    /*try {
+    try {
         let { 
             name, cellphone, email, service, originLanguage, description, destIngles, destPortugues, destJapones, destEspanol, destCoreano
         } = req.body;
@@ -111,11 +111,11 @@ app.post('/email', (req, res) => {
     } catch(err) {
         console.log(err)
         return res.send({ message: 'Hay un error al tratar de enviar el contacto, favor de comunicarce con soporte.' });
-    }*/
+    }
 
-    return setTimeout(() => {
+    /*return setTimeout(() => {
         return res.send({ message: '¡Envío de contacto exitoso!' });
-    }, 4000);
+    }, 4000);*/
 });
 
 app.listen(port, () => {
