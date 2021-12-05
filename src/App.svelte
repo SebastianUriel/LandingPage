@@ -13,55 +13,55 @@
             value: "Revistas",
             show: true,
             img: "/assets/img/servicios/magazine.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman los siguientes puntos: Idioma origen, idioma meta, número de palabras, estilo, tiempo de entrega y formato."
         },
         { 
             value: "Libros",
             show: true,
             img: "/assets/img/servicios/books.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman los siguientes puntos: Idioma origen, idioma meta, número de palabras, estilo, tiempo de entrega y formato."
         },
         { 
             value: "Artículos",
             show: true,
             img: "/assets/img/servicios/article.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman los siguientes puntos: Idioma origen, idioma meta, número de palabras, estilo, tiempo de entrega y formato."
         },
         { 
             value: "Actas de divorcio",
             show: true,
             img: "/assets/img/servicios/divorce.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman en cuenta los siguientes puntos: Idioma origen, idioma meta, tipo de documento, tiempo de entrega y apostillado."
         },
         { 
             value: "Actas de nacimiento",
             show: true,
             img: "/assets/img/servicios/birth.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman en cuenta los siguientes puntos: Idioma origen, idioma meta, tipo de documento, tiempo de entrega y apostillado."
         },
         { 
             value: "Cartas de titulación",
             show: true,
             img: "/assets/img/servicios/academic-title.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman en cuenta los siguientes puntos: Idioma origen, idioma meta, tipo de documento, tiempo de entrega y apostillado."
         },
         { 
             value: "Cartas de naturalización",
             show: true,
             img: "/assets/img/servicios/naturalization.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman en cuenta los siguientes puntos: Idioma origen, idioma meta, tipo de documento, tiempo de entrega y apostillado."
         },
         { 
             value: "Cartas de antecedentes penales",
             show: true,
             img: "/assets/img/servicios/penal.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman en cuenta los siguientes puntos: Idioma origen, idioma meta, tipo de documento, tiempo de entrega y apostillado."
         },
         { 
             value: "Libretos y guiones audiovisuales",
             show: true,
             img: "/assets/img/servicios/cinematography.jpg",
-            description: "Poner una descripcion"
+            description: "Para la cotización se toman los siguientes puntos: Idioma origen, idioma meta, número de palabras, estilo, tiempo de entrega y formato."
         },
         { 
             value: "Otro",
@@ -69,9 +69,28 @@
         }
     ];
 
+    const idiomasDestino = [
+        {
+            value: "Inglés"
+        },
+        {
+            value: "Portugués"
+        },
+        {
+            value: "Japonés"
+        },
+        {
+            value: "Español"
+        },
+        {
+            value: "Coreano"
+        }
+    ];
+
 	const { form, errors, handleChange, handleSubmit } = createForm({
 		initialValues: {},
 		validate: (values) => {
+            console.log(values);
 			let errors = {};
 
 			// Name
@@ -95,6 +114,16 @@
 			if(values.service == '0') {
 				errors["service"] = "Servicio es necesario.";
 			}
+
+            // Idioma origen
+            if(values.originLanguage == '0') {
+				errors["originLanguage"] = "Lenguaje origen es necesario.";
+			}
+
+            // Idioma destino
+            if(!values.destIngles && !values.destPortugues && !values.destJapones && !values.destEspanol && !values.destCoreano) {
+                errors["languageToTraduct"] = "Lenguaje destino es necesario.";
+            }
 
 			return errors;
 		},
@@ -156,6 +185,7 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
                     <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formulario">Formulario</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
             </div>
@@ -165,9 +195,16 @@
 	<!-- Masthead-->
     <header class="masthead">
         <div class="container">
-            <div class="masthead-subheading">¡Bienvenidos a TRADUNL!</div>
-            <div class="masthead-heading text-uppercase">¿Necesitas algún traductor?</div>
-            <a class="btn btn-primary btn-xl text-uppercase" href="#servicios">Servicios</a>
+            <div class="row">
+                <div class="d-none d-lg-block col-6">
+                    <img src="/assets/img/header-masthead-4.png" alt="contacto" />
+                </div>
+                <div class="col-lg-6 header-texto">
+                    <div class="masthead-subheading">¡Bienvenidos a TRADUNL!</div>
+                    <div class="masthead-heading text-uppercase">¿Necesitas algún traductor?</div>
+                    <a class="btn btn-primary btn-xl text-uppercase" href="#servicios">Servicios</a>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -176,43 +213,35 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Nosotros</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3 class="section-subheading text-muted">Somos traductores profesionales ubicados en el estado de Nuevo León.</h3>
             </div>
             <div class="row text-center">
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x iconos-nosotros"></i>
-                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        <i class="fas fa-language fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="my-3">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="my-3">Profesionales</h4>
+                    <p class="text-muted">Contamos con profesionales experimentados en traducciones jurídicas, técnicas, audiovisuales y académicas</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-6">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x iconos-nosotros"></i>
-                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                        <i class="fas fa-clipboard-check fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="my-3">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x iconos-nosotros"></i>
-                        <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="my-3">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                    <h4 class="my-3">Confiables</h4>
+                    <p class="text-muted">Cada proyecto se hace con profesionalidad, los textos traducidos son revisados por editores experimentados y los textos certificados son autorizados por un perito traductor jurídico en Nuevo León</p>
                 </div>
             </div>
         </div>
     </section>
 
 	<!-- Servicios-->
-    <section class="page-section bg-light" id="servicios">
+    <section class="page-section" id="servicios">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Servicios</h2>
-                <h4 class="section-subheading text-muted">Te ayudamos a traducir:</h4>
+                <h4 class="section-subheading text-muted">Te ayudamos a traducir</h4>
                 <h3 class="section-subheading text-muted"><b>(Los textos legales incluyen sello de perito certificado)</b></h3>
             </div>
             <div class="row">
@@ -236,19 +265,17 @@
         </div>
     </section>
 
-	<!-- Contactanos -->
-    <section class="page-section" id="contact">
+    <!-- Formulario -->
+    <section class="page-section" id="formulario">
         <div class="container">
             <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contáctanos</h2>
-                <h3 class="section-subheading text-muted">Nos contactaremos lo más pronto posible.</h3>
+                <h2 class="section-heading text-uppercase">Formulario</h2>
+                <h3 class="section-subheading text-muted">Mándanos tus datos y nos contactaremos lo más pronto posible</h3>
             </div>
+
             <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                 <div class="row justify-content-center mb-5">
-                    <div class="col-md-6">
-                        <img class="img-fluid" src="/assets/img/servicios/contacto.jpg" alt="contacto" />
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 contacto-correo">
                         <div class="form-group">
                             <!-- Input nombre-->
                             <input type="text" class="form-control" id="inputName" name="name" bind:value={$form.name} on:change={handleChange} maxlength="40" placeholder="Nombre">
@@ -270,12 +297,12 @@
                                 <span class="text-danger">{$errors.cellphone}</span>
                             {/if}
                         </div>
-                        <div class="form-group mb-md-0">
+                        <div class="form-group">
                             <!-- Lista de servicios-->
                             <select class="form-select" name="service" id="inputService" bind:value={$form.service} on:change={handleChange}>
                                 <option value="0" selected>Selecciona un servicio de su interés</option>
                                 {#each services as service}
-                                    <option value={service.value} selected>{service.value}</option>
+                                    <option value={service.value}>{service.value}</option>
                                 {/each}
                             </select>
                             {#if $errors.service}
@@ -283,10 +310,64 @@
                             {/if}
                         </div>
                         <div class="form-group">
-                            <!-- Boton enviar datos-->
-                            <div class="form-button text-center">
-                                <button type="button" class="btn btn-primary btn-xl text-uppercase" on:click={handleSubmit} onclick="this.blur();">Enviar datos</button>
-                            </div>
+                            <!-- Lista de idioma origen-->
+                            <select class="form-select" name="originLanguage" id="input-idioma-origen" bind:value={$form.originLanguage} on:change={handleChange}>
+                                <option value="0" selected>Selecciona el idioma origen</option>
+                                {#each idiomasDestino as idioma}
+                                    <option value={idioma.value}>{idioma.value}</option>
+                                {/each}
+                            </select>
+                            {#if $errors.originLanguage}
+                                <span class="text-danger">{$errors.originLanguage}</span>
+                            {/if}
+                        </div>
+                    </div>
+                    <div class="col-md-6 contacto-correo">
+                        <!-- Idiomas destino -->
+                        <div class="form-group-check">
+                            <legend id="legend-idioma-destino" class="">Selecciona los idiomas a traducir</legend>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" on:change={handleChange}
+                                        name="destIngles" id="chkDestIngles">
+                                    Inglés
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" on:change={handleChange}
+                                        name="destPortugues" id="chkDestPortugues">
+                                    Portugués
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" on:change={handleChange}
+                                        name="destJapones" id="chkDestJapones">
+                                    Japonés
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" on:change={handleChange}
+                                        name="destEspanol" id="chkDestEspañol">
+                                    Español
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" value="" on:change={handleChange}
+                                        name="destCoreano" id="chkDestCoreano">
+                                    Coreano
+                                </li>
+                            </ul>
+                            {#if $errors.languageToTraduct}
+                                <span class="text-danger">{$errors.languageToTraduct}</span>
+                            {/if}
+                        </div>
+
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Message input-->
+                            <textarea class="form-control" id="description" placeholder="Escribe tu necesidad"
+                                bind:value={$form.description} on:change={handleChange}/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- Boton enviar datos-->
+                        <div class="form-button text-center">
+                            <button type="button" class="btn btn-primary btn-xl text-uppercase" on:click={handleSubmit} onclick="this.blur();">Enviar datos</button>
                         </div>
                     </div>
                 </div>
@@ -294,13 +375,35 @@
         </div>
     </section>
 
+	<!-- Contactanos -->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contáctanos</h2>
+            </div>
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-6">
+                    <img class="img-fluid" src="/assets/img/servicios/contacto.PNG" alt="contacto" />
+                </div>
+                <div class="col-md-6 my-auto">
+                    <div class="text-center">
+                        <a class="btn btn-social btn-xl icon-face" href="https://www.facebook.com/TRADUNL" target="_blank">
+                            <i class="fab fa-facebook-square fa-6x"></i></a>
+                        <a class="btn btn-social btn-xl icon-whats" href="https://wa.me/message/VQ34XFNQTPHCE1" target="_blank">
+                            <i class="fab fa-whatsapp fa-6x"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </section>
+
     <!-- Footer-->
     <footer class="footer py-4">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-12 my-3 my-lg-2 ">
-                    <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/TRADUNL" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                </div>
                 <div class="col-lg-12 my-3 my-lg-2">Copyright &copy; Tradunl 2021</div>
             </div>
         </div>

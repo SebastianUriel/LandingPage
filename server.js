@@ -42,7 +42,7 @@ const decrypt = (iv, content) => {
     return decrpyted.toString();
 }
 
-app.post('/encript', (req, res) => {
+/*app.post('/encript', (req, res) => {
     let { text } = req.body;
     let result = encript(text);
     return res.send(result);
@@ -52,25 +52,36 @@ app.post('/decrypt', (req, res) => {
     let { iv, content } = req.body;
     let result = decrypt(iv, content);
     return res.send({ text: result });
-});
+});*/
 
 // --- Proceso envio de correo ---
 const nodemailer = require('nodemailer');
 
-const generateHtml = (name, cellphone, email, service) => {
+const generateHtml = (name, cellphone, email, service, originLanguage, description, languagesToTraduct) => {
     const filePath = path.join(__dirname, 'email/formato.html');
     const source = fs.readFileSync(filePath, 'utf-8').toString();
     const template = handlebars.compile(source);
-    const replacements = { name, cellphone, email, service };
+    const replacements = { name, cellphone, email, service, originLanguage, description, languagesToTraduct };
     return template(replacements);
 }
 
 app.post('/email', (req, res) => {
-    /*try {
-        let { name, cellphone, email, service } = req.body;
+    try {
+        let { 
+            name, cellphone, email, service, originLanguage, description, destIngles, destPortugues, destJapones, destEspanol, destCoreano
+        } = req.body;
+
+        if(destIngles) destIngles = "Inglés";
+        if(destPortugues) destPortugues = "Portugués";
+        if(destJapones) destJapones = "Japonés";
+        if(destEspanol) destEspanol = "Español";
+        if(destCoreano) destCoreano= "Coreano";
+
+        let languagesToTraduct = [destIngles, destPortugues, destJapones, destEspanol, destCoreano];
+        console.log(languagesToTraduct );
 
         let pass = decrypt(process.env.IV, process.env.CONTENT);
-        let htmlToSend = generateHtml(name, cellphone, email, service);
+        let htmlToSend = generateHtml(name, cellphone, email, service, originLanguage, description, languagesToTraduct);
     
         let transport = nodemailer.createTransport({
             service: 'Gmail',
@@ -82,7 +93,7 @@ app.post('/email', (req, res) => {
     
         let mailOptions = {
             from: process.env.EMAIL_FROM,
-            to: process.env.EMAIL_TO,
+            to: [process.env.EMAIL_TO, email],
             subject: '¡NUEVO CONTACTO INTERESADO!',
             text: 'Nuevo contacto',
             html: htmlToSend
@@ -100,11 +111,11 @@ app.post('/email', (req, res) => {
     } catch(err) {
         console.log(err)
         return res.send({ message: 'Hay un error al tratar de enviar el contacto, favor de comunicarce con soporte.' });
-    }*/
+    }
 
-    return setTimeout(() => {
+    /*return setTimeout(() => {
         return res.send({ message: '¡Envío de contacto exitoso!' });
-    }, 4000);
+    }, 4000);*/
 });
 
 app.listen(port, () => {

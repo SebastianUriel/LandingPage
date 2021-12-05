@@ -1,9 +1,20 @@
+:root{
+    --color-base: #5C4A48;
+    /* --color-navbar: #A0914E; */
+    /* --color-secundario: #212529; */
+    --color-navbar: #A0914E;
+    --color-secundario:  #5C4A48;
+    --color-terciario: #fff;
+    --color-boton: #5C4A48;
+    --color-fondo: #D9D9D9;
+}
+
 /* Menu de navegacion */
 
 #mainNav {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    background-color: #212529;
+    background-color: var(--color-secundario);
 }
 
 
@@ -16,7 +27,7 @@
 }
 
 #mainNav .navbar-brand {
-    color: #ffc800;
+    color: var(--color-navbar);
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
     letter-spacing: 0.0625em;
@@ -31,12 +42,12 @@
 #mainNav .navbar-nav .nav-item .nav-link {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 0.95rem;
-    color: #fff;
+    color: var(--color-terciario);
     letter-spacing: 0.0625em;
 }
 
 #mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-    color: #ffc800;
+    color: var(--color-navbar);
 }
 
 @media (min-width: 992px) {
@@ -45,7 +56,8 @@
         padding-bottom: 1rem;
         border: none;
         /* background-color: transparent; */
-        background-color: #212529;
+        background-color: var(--color-secundario);
+        /* background-color: var(--color-base); */
         transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
     }
     #mainNav .navbar-brand {
@@ -59,7 +71,8 @@
     #mainNav.navbar-shrink {
         padding-top: 1rem;
         padding-bottom: 1rem;
-        background-color: #212529;
+        background-color: var(--color-secundario);
+        /* background-color: var(--color-base); */
     }
     #mainNav.navbar-shrink .navbar-brand {
         font-size: 1.25em;
@@ -82,15 +95,22 @@ header.masthead {
     padding-top: 10.5rem;
     padding-bottom: 6rem;
     text-align: center;
-    color: #fff;
-    background-image: url("/assets/img/header-masthead-5.jpg");
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: center center;
-    background-size: cover;
+    color: var(--color-terciario);
+    background-color: var(--color-fondo);
+    /* background-image: url("/assets/img/header-masthead-4.png"); */
+    /* background-repeat: no-repeat; */
+    /* background-attachment: scroll; */
+    /* background-position: center center; */
+    /* background-size: cover; */
+    /* object-fit: contain; */
+}
+
+.main-space {
+    margin-bottom: 4rem;
 }
 
 header.masthead .masthead-subheading {
+    color: var(--color-boton);
     font-size: 1.5rem;
     font-style: italic;
     line-height: 1.5rem;
@@ -99,6 +119,7 @@ header.masthead .masthead-subheading {
 }
 
 header.masthead .masthead-heading {
+    color: var(--color-boton);
     font-size: 3.25rem;
     font-weight: 700;
     line-height: 3.25rem;
@@ -108,20 +129,25 @@ header.masthead .masthead-heading {
 
 @media (min-width: 768px) {
     header.masthead {
-        padding-top: 17rem;
-        padding-bottom: 12.5rem;
+        padding-top: 10rem;
+        padding-bottom: 5rem;
     }
     header.masthead .masthead-subheading {
+        color: var(--color-boton);
         font-size: 2.25rem;
         font-style: italic;
         line-height: 2.25rem;
         margin-bottom: 2rem;
     }
     header.masthead .masthead-heading {
-        font-size: 4.5rem;
+        color: var(--color-boton);
+        font-size: 3.25rem;
         font-weight: 700;
         line-height: 4.5rem;
         margin-bottom: 4rem;
+    }
+    .header-texto{
+        padding-top: 5rem;
     }
 }
 
@@ -135,17 +161,26 @@ header.masthead .masthead-heading {
 }
 
 .btn-primary {
-    color: #fff;
-    background-color: #ffc800;
-    border-color: #ffc800;
+    color: var(--color-terciario);
+    background-color: var(--color-boton);
+    border-color: var(--color-boton);
 }
 
 .btn-primary:hover {
-    color: #ffc800;
-    background-color: #fff;
-    border-color: #fff;
+    color: var(--color-terciario);
+    background-color: var(--color-navbar);
+    border-color: var(--color-terciario);
 }
 
+.form-check-input:checked {
+    background-color: var(--color-boton);
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+}
 
 /* Revisar su uso */
 /* html {
@@ -163,15 +198,24 @@ p {
 
 
 /* NOSOTROS */
+.section-heading{
+    color: var(--color-secundario);
+}
 
 .page-section {
     padding: 6rem 0;
 }
+
 .page-section h2.section-heading, .page-section .section-heading.h2 {
     font-size: 2.5rem;
     margin-top: 0;
     margin-bottom: 1rem;
 }
+
+/* .section-heading-2 {
+    margin-bottom: 2rem;
+} */
+
 .page-section h3.section-subheading, .page-section .section-subheading.h3 {
     font-size: 1rem;
     font-weight: 400;
@@ -188,7 +232,7 @@ p {
 }
 
 .iconos-nosotros {
-    color: #ffc800;
+    color: var(--color-base);
 } 
 
 @media (min-width: 768px) {
@@ -200,6 +244,10 @@ p {
 
 
 /* SERVICIOS */
+#servicios{
+    background-color: var(--color-fondo);
+}
+
 #servicios .servicio-item {
     max-width: 26rem;
     margin-left: auto;
@@ -236,7 +284,7 @@ p {
 #servicios .servicio-item .servicio-caption {
     padding: 1.5rem;
     text-align: center;
-    background-color: #fff;
+    background-color: var(--color-terciario);
 }
 
 #servicios .servicio-item .servicio-caption .servicio-caption-heading {
@@ -251,126 +299,134 @@ p {
     font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
   
-.servicio-modal .modal-dialog {
-    margin: 1rem;
-    max-width: 100vw;
+
+
+/* FORMULARIO */
+#formulario{
+    padding-bottom: 0rem;
 }
 
-.servicio-modal .modal-content {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-    text-align: center;
+.form-group-check {
+    margin-bottom: 30px;
 }
 
-.servicio-modal .modal-content h2, .servicio-modal .modal-content .h2 {
-    font-size: 3rem;
-    line-height: 3rem;
+section#formulario {
+    background-color: var(--color-terciario);    
 }
 
-.servicio-modal .modal-content p.item-intro {
-    font-style: italic;
-    margin-bottom: 2rem;
-    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+section#formulario .section-heading,
+section#formulario .section-subheading {
+    color: var(--color-secundario);
 }
 
-.servicio-modal .modal-content p {
-    margin-bottom: 2rem;
-}
-
-.servicio-modal .modal-content ul.list-inline {
-    margin-bottom: 2rem;
-}
-
-.servicio-modal .modal-content img {
-    margin-bottom: 2rem;
-}
-
-.servicio-modal .close-modal {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    width: 3rem;
-    height: 3rem;
-    cursor: pointer;
-    background-color: transparent;
-}
-
-.servicio-modal .close-modal:hover {
-    opacity: 0.3;
-}
-
-
-
-
-/* CONTACTANOS */
-section#contact {
-    background-color: #212529;
-    /* background-image: url("/dist/assets/img/header-masthead.png"); */
-    background-repeat: no-repeat;
-    background-position: center;
-    
-}
-
-section#contact .section-heading {
-    color: #fff;
-}
-
-section#contact form#contactForm .form-group {
+section#formulario form#contactForm .form-group {
     margin-bottom: 1.5rem;
 }
 
-section#contact form#contactForm .form-group input,
-section#contact form#contactForm .form-group select,
-section#contact form#contactForm .form-group .form-button  {
+section#formulario form#contactForm .form-group input,
+section#formulario form#contactForm .form-group select,
+section#formulario form#contactForm .form-group textarea {
   padding: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
-section#contact form#contactForm .form-group input.form-control,
-section#contact form#contactForm .form-group select.form-control {
+section#formulario form#contactForm .form-group .form-button {
+    padding: 1.25rem;
+}
+
+#message{
+    resize: none;
+}
+
+section#formulario form#contactForm .form-group input.form-control,
+section#formulario form#contactForm .form-group select.form-control,
+section#formulario form#contactForm .form-group textarea.form-control {
     height: auto;
 }
 
-section#contact form#contactForm .form-group-textarea {
-    height: 100%;
+#grupo-idiomas-destino{
+    margin-bottom: 1.5rem;
 }
 
-section#contact form#contactForm .form-group-textarea textarea {
-    height: 100%;
-    min-height: 10rem;
+#legend-idioma-destino, .form-check{
+    color: var(--color-secundario);
+    font-size: 1rem;
+    font-weight: 400;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    margin-bottom: .1rem;
+    text-align: center;
 }
 
-section#contact form#contactForm p.help-block {
+
+/* @media (max-width: 767px){
+    section#formulario form#contactForm .contacto-correo{
+        margin-top: 3rem;
+    } 
+} */
+
+section#formulario form#contactForm p.help-block {
     margin: 0;
 }
 
-section#contact form#contactForm .form-control:focus {
-    border-color: #ffc800;
+section#formulario form#contactForm .form-control:focus {
+    border-color: var(--color-base);
     box-shadow: none;
 }
 
-section#contact form#contactForm ::-webkit-input-placeholder {
+section#formulario form#contactForm ::-webkit-input-placeholder {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
     color: #ced4da;
 }
 
-section#contact form#contactForm :-moz-placeholder {
+section#formulario form#contactForm :-moz-placeholder {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
     color: #ced4da;
 }
 
-section#contact form#contactForm ::-moz-placeholder {
+section#formulario form#contactForm ::-moz-placeholder {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
     color: #ced4da;
 }
 
-section#contact form#contactForm :-ms-input-placeholder {
+section#formulario form#contactForm :-ms-input-placeholder {
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-weight: 700;
     color: #ced4da;
 }
+
+
+/* CONTACTANOS */
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#contact{
+    padding-bottom: 2rem;
+}
+
+section#contact {
+    background-color: var(--color-fondo);    
+}
+
+section#contact .section-heading {
+    color: var(--color-secundario);
+    padding-bottom: 2rem;
+}
+
+.icon-face, .icon-whats{
+    color: var(--color-boton);
+}
+
+.icon-face:hover, 
+.icon-whats:hover{
+    color: var(--color-navbar);
+}
+
+
 
 /* FOOTER */
 .footer {
@@ -378,4 +434,8 @@ section#contact form#contactForm :-ms-input-placeholder {
     font-size: 0.9rem;
     font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+
+
+
 
