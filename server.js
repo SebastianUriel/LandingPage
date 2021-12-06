@@ -94,8 +94,8 @@ app.post('/email', (req, res) => {
         let mailOptions = {
             from: process.env.EMAIL_FROM,
             to: [process.env.EMAIL_TO, email],
-            subject: '¡NUEVO CONTACTO INTERESADO!',
-            text: 'Nuevo contacto',
+            subject: 'TRADUNL - ¡Gracias por contactarnos!',
+            text: 'Resumen de tu solicitud',
             html: htmlToSend
         };
     
