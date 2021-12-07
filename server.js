@@ -12,11 +12,22 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 5000;
 
+const whitelist = ['http://localhost:3000', 'https://tradunl.com'];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error())
+    }
+  }
+}
+
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('public'));
-app.use(cors());
+app.use(cors(corsOptions));
 
 // Folder public
 app.get('*', (req, res) => {
@@ -42,7 +53,7 @@ const decrypt = (iv, content) => {
     return decrpyted.toString();
 }
 
-/*app.post('/encript', (req, res) => {
+app.post('/encript', (req, res) => {
     let { text } = req.body;
     let result = encript(text);
     return res.send(result);
@@ -52,7 +63,7 @@ app.post('/decrypt', (req, res) => {
     let { iv, content } = req.body;
     let result = decrypt(iv, content);
     return res.send({ text: result });
-});*/
+});
 
 // --- Proceso envio de correo ---
 const nodemailer = require('nodemailer');
@@ -78,7 +89,6 @@ app.post('/email', (req, res) => {
         if(destCoreano) destCoreano= "Coreano";
 
         let languagesToTraduct = [destIngles, destPortugues, destJapones, destEspanol, destCoreano];
-        console.log(languagesToTraduct );
 
         let pass = decrypt(process.env.IV, process.env.CONTENT);
         let htmlToSend = generateHtml(name, cellphone, email, service, originLanguage, description, languagesToTraduct);

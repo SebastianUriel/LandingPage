@@ -146,6 +146,7 @@
 			const response = await returnValue.json();
 			message = response.message;
 		} catch (error) {
+            message = '¡Error en el envio de correo!';
 			console.error(error);
 		}
 		inProcess = false;
