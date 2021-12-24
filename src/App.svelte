@@ -386,6 +386,9 @@
             <div class="row justify-content-center mb-5">
                 <div class="col-md-6">
                     <img class="img-fluid" src="/assets/img/servicios/contacto.PNG" alt="contacto" />
+                    <div class="text-center">
+                        <h3 class="section-subheading text-muted">Correo electrónico: contacto@tradunl.com</h3>
+                    </div>
                 </div>
                 <div class="col-md-6 my-auto">
                     <div class="text-center">
