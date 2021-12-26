@@ -12,7 +12,7 @@ const fs = require('fs');
 const app = express();
 const port = process.env.PORT || 5000;
 
-const whitelist = ['http://localhost:3000', 'https://tradunl.com', 'https://app-tradunl.herokuapp.com'];
+const whitelist = ['http://localhost:3000', 'https://tradunl.com', 'https://app-tradunl.herokuapp.com', 'https://www.tradunl.com'];
 const corsOptions = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
