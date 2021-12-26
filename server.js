@@ -102,7 +102,7 @@ app.post('/email', (req, res) => {
         });
     
         let mailOptions = {
-            from: process.env.EMAIL_FROM,
+            from: process.env.EMAIL_ALIAS,
             to: [process.env.EMAIL_TO, email],
             subject: 'TRADUNL - ¡Gracias por contactarnos!',
             text: 'Resumen de tu solicitud',
